@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- For use from AutoBuild invocation in TeamCity -->
+	<ItemDefinitionGroup Condition="'$(SegWorld)'=='1'">
+		<ClCompile>
+		  <PreprocessorDefinitions>SEG_WORLD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+		</ClCompile>
+	</ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Oculus)'!='1'">
+    <ClCompile>
+      <PreprocessorDefinitions>EXCLUDE_OCULUS_SDK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Cinemizer)'!='1'">
+    <ClCompile>
+      <PreprocessorDefinitions>EXCLUDE_CINEMIZER_SDK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+</Project>
